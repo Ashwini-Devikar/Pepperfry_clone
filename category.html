@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Page - Pepperfry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar (Simplified) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo.svg" alt="Pepperfry" height="32">
+        </a>
+        <div class="ms-auto">
+             <a href="index.html" class="text-decoration-none text-dark me-3">Continue Shopping</a>
+             <a href="cart.html" class="text-decoration-none text-dark position-relative">
+                <i class="bi bi-cart"></i> Cart
+                <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem; display: none;">0</span>
+             </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 id="category-heading" class="fw-bold mb-0">Products</h2>
+        <button class="btn btn-outline-secondary rounded-pill px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sortOffcanvas" aria-controls="sortOffcanvas" id="sortLabel">
+            <i class="bi bi-sort-down"></i> Sort By: Relevance
+        </button>
+    </div>
+    <div id="product-list-container" class="row g-4">
+        <!-- Products will be injected here by JavaScript -->
+    </div>
+</div>
+
+<!-- Sort Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="sortOffcanvas" aria-labelledby="sortOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title fw-bold" id="sortOffcanvasLabel"><i class="bi bi-sort-down me-2"></i>Sort By</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column h-100">
+    <div class="flex-grow-1" id="sortOptionsList">
+        <div class="filter-group-title">Sort Options</div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="sortRadio" id="sortRel" value="relevance">
+            <label class="form-check-label" for="sortRel">Relevance</label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="sortRadio" id="sortAsc" value="price_asc">
+            <label class="form-check-label" for="sortAsc">Price: Low to High</label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="sortRadio" id="sortDesc" value="price_desc">
+            <label class="form-check-label" for="sortDesc">Price: High to Low</label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="sortRadio" id="sortNew" value="newest">
+            <label class="form-check-label" for="sortNew">Newest First</label>
+        </div>
+    </div>
+    <div class="d-grid gap-2 mt-auto pt-3 border-top">
+        <button class="btn btn-primary fw-bold py-2" type="button" style="background-color: #ff7043; border: none;" onclick="applySortFrontend()">APPLY SORT</button>
+        <button class="btn btn-outline-secondary py-2" type="button" onclick="sortCategory('relevance')">RESET</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast for Cart notifications -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+  <div id="cartToast" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        <i class="bi bi-check-circle-fill text-success me-2"></i>
+        Item added to your cart successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

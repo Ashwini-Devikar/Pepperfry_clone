@@ -1,0 +1,920 @@
+
+
+.search-container {
+    position: relative;
+    width: 200px; /* adjust width */
+}
+
+.title{
+  color: #ae8b06; /* brown color */
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* space for icon */
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+}
+
+.search-input:focus {
+    border-bottom-color: #007bff;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+}
+/* Absolute wrapper so logo never moves */
+.pf-search-absolute {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Search container */
+.pf-search-container {
+  width: 190px;
+  transition: width 0.35s ease;
+  position: relative;
+}
+
+/* Expand WITHOUT affecting logo */
+.pf-search-container.active {
+  width: 400px;
+}
+
+/* Search bar */
+.pf-search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 6px;
+}
+
+.pf-search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Dropdown */
+.pf-search-dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 500px;
+  background: #fff;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 999;
+}
+
+.pf-search-container.active .pf-search-dropdown {
+  display: block;
+}
+
+/* Tags logo */
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pf-tags span {
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.pf-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pf-logo img {
+  height: 32px;     /* fixed size */
+  width: auto;      /* keep aspect ratio */
+}
+
+/* Navbar z-index fix */
+.navbar {
+    position: relative;
+    z-index: 1050;
+}
+
+/*right side of navbar*/
+ .signup-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+}
+
+.offer-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ff6a2d;   /* Pepperfry orange */
+}
+
+.store-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ff6a2d;
+}
+
+.signup-icon {
+  font-size: 38px;
+  color: #666;
+  opacity: 0.9;     /* makes icon look thin */
+}
+
+
+/* ICONS */
+.signup-icon,
+.nav-icon {
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* ICON HOVER COLOR */
+.nav-icon:hover,
+.signup-wrapper:hover {
+  color: #ff6a2d;
+}
+
+/* SIGNUP DROPDOWN */
+.signup-dropdown {
+  position: absolute;
+  color: #000;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 140px;
+  font-size: 14px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 20px;
+  display: none;
+  z-index: 999;  
+}
+
+/* SHOW DROPDOWN */
+.signup-wrapper:hover .signup-dropdown {
+  display: block;
+}
+
+/* ORANGE TOP BAR */
+.top-bar {
+  position: absolute;
+  top: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  width: 80px;
+  background: #ff6a2d;
+  margin-bottom: 15px;
+}
+
+/* BUTTON */
+.signup-btn {
+  background: linear-gradient(90deg, #ff6a2d, #ff4b2b);
+  color: #fff;
+  font-weight: 500;
+  padding: 10px;
+  width: 60%;
+  border: none;
+  border-radius: 0%;
+  padding: 10px 0;
+}
+
+/* Ensure text stays white even when clicked */
+.signup-btn, 
+.signup-btn:hover, 
+.signup-btn:focus, 
+.signup-btn:active {
+  color: #fff !important; 
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Make ONLY the button look faded when clicked (Active State) */
+.signup-btn:active {
+  opacity: 0.7; /* This makes the entire button look "faded" */
+  transform: scale(0.98); /* Optional: slight shrink effect to feel like a real click */
+}
+
+/* RESET */
+.pf-category-bar,
+.pf-category-list,
+.pf-item {
+  overflow: visible;
+}
+
+/* CATEGORY BAR */
+.pf-category-bar {
+  position: relative;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.pf-category-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 14px 0;
+  margin: 0;
+}
+
+/* MENU LINKS */
+.pf-item > a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  padding-bottom: 10px;
+  position: relative;   /* VERY IMPORTANT */
+}
+
+.pf-item:hover > a {
+  color: #ff6a2d;
+  border-bottom: 3px solid #ff6a2d;
+}
+
+/* MEGA MENU */
+.pf-mega {
+  position: absolute;
+  top: 100%; /* Keeps it aligned to the bottom of the parent li */
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 1350px;
+  /* Remove height: 600px; let content or min-height handle it */
+  min-height: 500px; 
+
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 9999;
+  display: none;
+
+  /* THE FIX: This invisible bridge covers the gap */
+  border-top: 0px solid transparent; 
+  margin-top: -10px; /* Pulls the hit-area up slightly to overlap the link */
+}
+
+/* SHOW ON HOVER */
+.pf-item:hover > .pf-mega {
+  display: block;
+}
+
+.pf-item:hover > .pf-mega,
+.pf-mega:hover {
+  display: block;
+}
+
+.pf-item > a {
+  position: relative;
+  z-index: 10;
+}
+
+/* HEADINGS */
+.pf-col h6 {
+  font-size: 13px;
+  color: #ae8b06;
+  margin-bottom: 8px;
+}
+
+/* LINKS */
+.pf-col a {
+  display: block;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 6px;
+  text-decoration: none;
+}
+
+.pf-col a:hover {
+  color: #ff6a2d;
+}
+.pf-mega-cols {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  flex: 1;                  /* takes remaining width */
+  height: 100%;
+}
+
+.pf-col {
+  width: 150px;   /* fixed column width */
+  flex-shrink: 0; /* 🔥 prevents dropping */
+}
+
+.pf-col.grey {
+  background: #f3f3f3;   /* NOT pure #eee */
+  height: 600px;
+  width: 150px;
+  padding: 5px;
+}
+
+.pf-col.white {
+  background: #ffffff;
+  height: 600px;
+  width: 150px;
+  padding: 5px;
+
+}
+
+/* IMAGES */
+.pf-mega-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.pf-mega-image {
+  width: 180px;          /* 🔥 SMALL image column */
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+.pf-mega-inner {
+  display: flex;
+  align-items: flex-start;   /* 🔥 keeps image at TOP */
+}
+
+/* Show FULL image */
+.pf-mega-modular img {
+  width: 100%;
+  height: auto;          /* 🔥 IMPORTANT */
+  display: block;
+}
+
+/* Customizing the transition speed (the actual sliding movement) */
+.carousel-item {
+    transition: transform 0.4s ease-in-out; /* Adjust 0.6s for faster/slower movement */
+}
+
+/* Ensure the images fill the slider height perfectly without distortion */
+.pf-hero-right .object-fit-cover {
+    object-fit: cover;
+    height: 100%;
+}
+
+/* Removes default browser spacing that causes white edges */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll from the wide image */
+}
+
+/* Prevent nested containers from breaking width alignment */
+.container .container {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
+}
+
+
+/* Navigation Pills */
+.pf-pill {
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.pf-pill.active {
+    background-color: #fff1ed; /* Light orange background */
+    border-color: #ff7043;      /* Orange border */
+    color: #ff7043;             /* Orange text */
+}
+
+/* Product Cards */
+.pf-img-wrapper {
+    background-color: #f3f3f3; /* Light gray background for images */
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pf-category-card:hover .pf-img-wrapper {
+    transform: translateY(-5px); /* Subtle hover lift */
+}
+
+.pf-category-card p {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Styling the dots container */
+.pf-dots {
+    /* Move this value to 0px or even negative to push them to the very edge */
+    bottom: 5px !important; 
+    margin-bottom: 0 !important; 
+}
+/* Base style for all dots - Fixed the selector from [button] to button */
+.pf-dots button {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important; /* Forces circular shape */
+    background-color: #fff !important; 
+    border: none !important;
+    /* Overriding Bootstrap defaults that cause bar shapes */
+    border-top: 10px solid transparent !important;
+    border-bottom: 10px solid transparent !important;
+    background-clip: padding-box !important;
+    opacity: 0.5 !important; /* Semi-transparent for inactive */
+    margin: 0 6px !important;
+    transition: all 2s ease;
+}
+
+/* Active dot style */
+.pf-dots button.active {
+    background-color: #ff7043 !important; 
+    opacity: 1 !important;
+}
+
+.pf-pill {
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.pf-pill:hover {
+  background: #f3f3f3;
+  color: #ff6a2d;
+  border-color: #ff6a2d;
+}
+/* Container for the tabs */
+.brand-bazaar-tabs {
+    border-bottom: 2px solid #e0e0e0 !important; /* The full-width light gray line */
+    display: flex;
+}
+
+/* Individual Tab styling */
+.brand-bazaar-tabs .nav-link {
+    border: none !important; /* Remove Bootstrap's default borders */
+    background: transparent !important;
+    color: #888 !important; /* Default Gray text/icon */
+    padding: 15px 0;
+    font-size: 16px;
+    border-bottom: 3px solid transparent !important; /* Hidden underline */
+    transition: all 0.3s ease;
+    color: #888; /* Gray icon color */
+}
+/* Stack Icon over Text */
+.brand-bazaar-tabs .nav-link {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    border: none !important;
+    background: transparent !important;
+    color: #888;
+    padding-bottom: 15px;
+    margin-bottom: -1px; /* Ties the orange line to the gray line */
+    border-bottom: 2px solid transparent !important;
+}
+
+/* Gray line across the whole section */
+.brand-bazaar-tabs {
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+/* Active Orange Styling */
+.brand-bazaar-tabs .nav-link.active {
+    color: #ff7043 !important;
+    border-bottom: 2px solid #ff7043 !important;
+}
+
+/* Icon Sizing */
+.brand-icon {
+    width: 24px;
+    height: 24px;
+    transition: 0.3s;
+}
+
+/* Arched Image Card */
+.pf-arch-card {
+    border: 1px solid #ff7043;
+    border-radius: 120px  0 0; /* Adjust for arch intensity */
+    overflow: hidden;
+}
+
+/* ACTIVE State (Orange) */
+.brand-bazaar-tabs .nav-link.active {
+    color: #ff7043 !important; /* Orange text */
+    border-bottom: 3px solid #ff7043 !important; /* The orange line under active item */
+}
+
+
+/* Arched Image Styling from your reference */
+.pf-arch-card {
+    border: 2px solid #ff7043;
+    border-radius: 150px 150px 0 0;
+    transition: transform 0.3s;
+}
+/* 2. Active State (Orange Icons) */
+/* When the parent nav-link is active, we change the icon color */
+.brand-bazaar-tabs .nav-link.active .brand-icon {
+    filter: none; /* Returns to original color if your SVG is already orange */
+    
+    /* OR: If your SVG is black and you want to force it to Pepperfry Orange (#ff7043) */
+    filter: invert(56%) sepia(88%) saturate(3054%) hue-rotate(334deg) brightness(101%) contrast(101%);
+}
+
+/* Remove default bootstrap tab styling */
+.brand-bazaar-tabs {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.brand-bazaar-tabs .nav-link {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #6c757d;
+  padding: 18px 0;
+  font-weight: 500;
+}
+
+.brand-bazaar-tabs .nav-link i {
+  font-size: 22px;
+  color: #6c757d;
+}
+
+.brand-bazaar-tabs .nav-link.active {
+  color: #ff6a2d;
+  position: relative;
+}
+
+.brand-bazaar-tabs .nav-link.active i {
+  color: #ff6a2d;
+}
+
+/* Underline effect (Pepperfry style) */
+.brand-bazaar-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ff6a2d;
+}
+
+.wishlist-container {
+    position: absolute;
+    bottom: -5px;
+    right: 8px; /* MOVED TO RIGHT SIDE */
+    background: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #e0e0e0; /* Default gray */
+    font-size: 16px;
+    transition: 0.3s;
+    z-index: 5;
+}
+
+/* Active Heart Color */
+.wishlist-container.active {
+    color: #ff7043 !important;
+}
+
+.wishlist-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+    font-size: 0.85rem;
+}
+/* 1. The Container Logic */
+.slider-container {
+    display: flex;
+    overflow: hidden; /* Hides cards that are not in view */
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.city-card-wrapper {
+    flex: 0 0 33.333%; /* Shows 3 cards */
+    padding-left: 10px;  /* This creates the gap between cards */ 
+    box-sizing: border-box;
+    
+}
+
+.city-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.city-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(50%); /* Black and White */
+    transition: 0.4s ease;
+    height: 300px;
+}
+
+
+/* 3. Arrow Styling (Gray boxes) */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev-arrow { left: 0; }
+.next-arrow { right: 0; }
+
+.slider-arrow i { font-size: 1.5rem; color: #333; }
+
+/* footer */
+
+.pf-footer a {
+  color: #6b6b6b;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.pf-footer a:hover {
+  color: #ff6a2d;
+}
+
+.pf-footer h6 {
+  font-size: 14px;
+}
+
+.pf-footer p {
+  line-height: 1.6;
+}
+/* Add to cart */
+/* Custom Bootstrap-style Orange Button */
+.btn-outline-orange {
+    color: #ff6a2d;
+    border-color: #ff6a2d;
+}
+
+.btn-outline-orange:hover {
+    background-color: #ff6a2d;
+    border-color: #ff6a2d;
+    color: #fff;
+}
+
+/* Optional: Pepperfry Deal Card Styling */
+.pf-deal-card {
+    transition: transform 0.2s ease-in-out;
+    background: #fff;
+}
+
+/* Custom Pepperfry Button Interaction */
+.btn-pf-action {
+    background-color: transparent;
+    color: #ff6a2d;
+    border: 1px solid #ff6a2d;
+    transition: all 0.2s ease;
+}
+
+/* 1. HOVER: Light Tint */
+.btn-pf-action:hover {
+    background-color: #fff4f0; 
+    color: #ff6a2d;
+}
+
+/* 2. CLICK: Actual Solid Pepperfry Orange */
+.btn-pf-action:active, .btn-pf-action:focus {
+    background-color: #ff6a2d !important;
+    color: #ffffff !important;
+    border-color: #ff6a2d !important;
+    box-shadow: none; /* Removes the blue Bootstrap focus ring */
+}
+
+/* Style for the Toast Prompt */
+.toast {
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+/* Global Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   RESPONSIVE STYLES
+   ========================================= */
+
+@media (max-width: 1400px) {
+    /* Prevent Mega Menu overflow on smaller desktops */
+    .pf-mega {
+        width: 100%;
+        left: 0;
+        transform: none;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    /* --- Navbar Adjustments --- */
+    .navbar .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Logo Stacks on Top */
+    .pf-logo {
+        position: static;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        order: 1;
+        display: block;
+    }
+
+    /* Icons Stack Below Logo */
+    .right-navbar {
+        order: 2;
+        width: 100%;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+
+    /* Hide text labels in right navbar to prevent overlap on mobile */
+    .signup-text, .offer-text, .store-text {
+        display: none;
+    }
+
+    /* Search bar takes full width on new line */
+    .pf-search-container {
+        order: 3;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .pf-search-container.active {
+        width: 100%;
+    }
+
+    /* --- Category Bar Scrollable --- */
+    .pf-category-list {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 10px 15px;
+        gap: 20px;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    }
+
+    .pf-item {
+        flex: 0 0 auto;
+    }
+
+    /* --- Mega Menu Mobile --- */
+    .pf-mega {
+        position: static; /* Flow with content instead of overlay */
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+    }
+
+    .pf-mega-cols {
+        flex-direction: column;
+    }
+
+    .pf-col, .pf-col.grey, .pf-col.white {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .pf-mega-images {
+        display: none; /* Hide menu images on mobile to save space */
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- City Slider --- */
+    .city-card-wrapper {
+        flex: 0 0 100%; /* Show 1 card at a time */
+        padding-left: 0;
+    }
+
+    /* --- Hero Section --- */
+    .pf-hero-right {
+        height: 300px;
+        margin-top: 15px;
+    }
+
+    /* --- Footer --- */
+    .pf-footer .row {
+        text-align: center;
+    }
+    
+    .pf-footer .d-flex {
+        justify-content: center;
+    }
+    
+    .pf-footer .ms-auto {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* --- Swipeable Product Grids --- */
+    .pf-mobile-scroll {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 15px; /* Space for touch action */
+    }
+
+    .pf-mobile-scroll .col {
+        flex: 0 0 65%; /* Show 1 full card and part of the next */
+        max-width: 65%;
+        scroll-snap-align: start;
+    }
+
+    /* --- Compact Mobile UI --- */
+    .nav-icon, .signup-icon {
+        font-size: 20px; /* Smaller icons */
+    }
+
+    .pf-logo img {
+        height: 22px; /* Smaller logo */
+    }
+
+    .pf-search-bar input {
+        font-size: 13px; /* Smaller search text */
+        height: 30px;
+    }
+
+    .pf-search-bar i {
+        font-size: 14px;
+    }
+
+    .right-navbar {
+        gap: 12px !important; /* Closer icons */
+    }
+
+    .btn {
+        font-size: 13px; /* Systematic size */
+        padding: 8px 16px; /* Better touch target */
+    }
+
+    .pf-pill {
+        font-size: 13px;
+        padding: 6px 14px;
+    }
+
+    h4 {
+        font-size: 16px !important; /* Smaller headings */
+    }
+}
